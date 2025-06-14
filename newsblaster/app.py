@@ -3,9 +3,15 @@ import os
 from rss_generator import multi_rss_generator
 from scrapper import threaded_fetch
 from summarizer import parallel_summarize
+import time
+
+st.cache_data.clear()
+st.experimental_rerun()
 
 st.set_page_config(page_title="📰 NEWSBLASTER", page_icon="🗿", layout="wide")
 st.title("📰 NEWSBLASTER")
+if st.button("Refresh"):
+    st.rerun()
 st.caption("learning basic web scraping, summarization and RSS feed generation with Python along with getting a hang of pipelines and streamlit")
 
 ALL_FEEDS = {
