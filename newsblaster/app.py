@@ -20,7 +20,7 @@ st.title("📰 NEWSBLASTER")
 if st.button("Refresh Data Directories"):
     refresh_data_dir()
     time.sleep(1)
-    st.experimental_rerun()
+    st.cache_data.clear()  
 
 st.caption("learning basic web scraping, summarization and RSS feed generation with Python along with getting a hang of pipelines and streamlit")
 
