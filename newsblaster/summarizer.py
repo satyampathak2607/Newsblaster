@@ -1,5 +1,5 @@
 import os
-from multiprocessing import Pool
+from concurrent.futures import ProcessPoolExecutor 
 
 def summarize_file(file_path, max_chars = 500):
     try:
@@ -20,7 +20,9 @@ def summarize_file(file_path, max_chars = 500):
 
 def parallel_summarize(raw_dir = "raw_articles"):
     all_files = [os.path.join(raw_dir,f) for f in os.listdir(raw_dir) if f.endswith(".txt")]
+    with ProcessPoolExecutor(max_workers=4) as executor:
+        executor.map(summarize_file, all_files)
 
-    with Pool(processes = 4) as pool:
-        pool.map(summarize_file, all_files)
+
+   
         
