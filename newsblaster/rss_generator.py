@@ -8,7 +8,7 @@ def multi_rss_generator(feed_urls, max_articles = 10):
     for rss_url in feed_urls:
         try:
             count = 0
-            response = requests.get(rss_url, headers=headers)
+            response = requests.get(rss_url, headers=headers, timeout=10)
             if response.status_code != 200:
                 print(f" Failed : {rss_url} with status code {response.status_code}")
                 continue
