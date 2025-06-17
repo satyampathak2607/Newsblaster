@@ -17,6 +17,7 @@ st.set_page_config(page_title="📰 NEWSBLASTER", page_icon="🗿", layout="wide
 st.title("📰 NEWSBLASTER")
 if st.button("Refresh"):
     st.cache_data.clear()
+    refesh_data_dir()
     st.rerun()
 st.caption("learning basic web scraping, summarization and RSS feed generation with Python along with getting a hang of pipelines and streamlit")
 
