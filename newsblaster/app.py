@@ -11,10 +11,7 @@ import shutil
 
 st.set_page_config(page_title="📰 NEWSBLASTER", page_icon="🗿", layout="wide")
 st.title("📰 NEWSBLASTER")
-if st.button("Refresh"):
-    st.cache_data.clear()
-    refesh_data_dir()
-    st.rerun()
+
 st.caption("learning basic web scraping, summarization and RSS feed generation with Python along with getting a hang of pipelines and streamlit")
 
 ALL_FEEDS = {
@@ -52,11 +49,16 @@ if st.button("Run Newsblaster"):
         with st.expander(file):
             st.write(summary)
 
-def refesh_data_dir():
+def refresh_data_dir():
     for folder in ["raw_articles", "summaries"]:
         shutil.rmtree(folder, ignore_errors=True)
         os.makedirs("raw_articles", exist_ok=True)
     st.success("Data directories refreshed!")
+
+    if st.button("Refresh"):
+        st.cache_data.clear()
+        refresh_data_dir()
+        st.rerun()
 
 
         
