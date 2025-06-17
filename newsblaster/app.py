@@ -6,11 +6,7 @@ from summarizer import parallel_summarize
 import time
 import shutil
 
-def refesh_data_dir():
-    for folder in ["raw_articles", "summaries"]:
-        shutil.rmtree(folder, ignore_errors=True)
-        os.makedirs("raw_articles", exist_ok=True)
-    st.success("Data directories refreshed!")
+
 
 
 st.set_page_config(page_title="📰 NEWSBLASTER", page_icon="🗿", layout="wide")
@@ -55,6 +51,12 @@ if st.button("Run Newsblaster"):
 
         with st.expander(file):
             st.write(summary)
+
+def refesh_data_dir():
+    for folder in ["raw_articles", "summaries"]:
+        shutil.rmtree(folder, ignore_errors=True)
+        os.makedirs("raw_articles", exist_ok=True)
+    st.success("Data directories refreshed!")
 
 
         
