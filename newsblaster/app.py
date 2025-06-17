@@ -1,9 +1,7 @@
 import os
 import streamlit as st
 
-from newsblaster.summarizer import parallel_summarize
-from newsblaster.main import multi_rss_generator, threaded_fetch
-from newsblaster.rss_generator import multi_rss_generator
+
 
 
 st.set_page_config(page_title="NewsBlaster", page_icon="📰", layout="wide")
