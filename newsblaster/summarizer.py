@@ -23,3 +23,4 @@ def parallel_summarize(raw_dir = "raw_articles"):
 
     with Pool(processes = 4) as pool:
         pool.map(summarize_file, all_files)
+        

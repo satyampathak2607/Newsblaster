@@ -4,7 +4,13 @@ from rss_generator import multi_rss_generator
 from scrapper import threaded_fetch
 from summarizer import parallel_summarize
 import time
+import shutil
 
+def refesh_data_dir():
+    for folder in ["raw_articles", "summaries"]:
+        shutil.rmtree(folder, ignore_errors=True)
+        os.makedirs("raw_articles", exist_ok=True)
+    st.success("Data directories refreshed!")
 
 
 st.set_page_config(page_title="📰 NEWSBLASTER", page_icon="🗿", layout="wide")
